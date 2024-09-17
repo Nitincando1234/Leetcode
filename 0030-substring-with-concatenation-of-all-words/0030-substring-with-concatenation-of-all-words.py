@@ -1,9 +1,9 @@
 class Solution:
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
-        cnt = Counter(words)
-        m, n = len(s), len(words)
         k = len(words[0])
-        ans = []
+        m, n = len(s), len(words)
+        res = []
+        cnt = Counter(words)
         for i in range(k):
             cnt1 = Counter()
             l = r = i
@@ -23,7 +23,10 @@ class Solution:
                     l += k
                     cnt1[remove] -= 1
                     t -= 1
+                    
                 if t == n:
-                    ans.append(l)
-        return ans                    
+                    res.append(l)
+            
+        return res
+                    
             
